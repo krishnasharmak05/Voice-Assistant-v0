@@ -168,3 +168,6 @@ if __name__ == "__main__":
 
 # TO DB = to-do lists, jokes, reminders and alarms(, timers).
 # TAKE CARE OF THAT "NONE" THAT IS RETURNED FROM listen_for_commands()
+    
+
+    
