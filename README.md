@@ -20,4 +20,4 @@ This project is gives you a personal voice assistant for your Windows PC.
 > Features 5 to 8 have not yet been completely built. Working on it.
 
 
-Check out [this repo](github.com/krishnasharmak05/Voice-Assistant). I am trying to build a better version of this assistant there. That doesn't mean that this project has been scraped. I will keep working on both for now.
+Check out [this repo](https://github.com/krishnasharmak05/Voice-Assistant). I am trying to build a better version of this assistant there. That doesn't mean that this project has been scraped. I will keep working on both for now.
