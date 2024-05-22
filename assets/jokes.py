@@ -4,8 +4,6 @@
 # Use NLP and neural networks to make my voice assistant give greetings and general feedback, info about itself, and such stuff...
 
 
-# FOR ANDROID, WITH KOTLIN: MAKE AN APP THAT CAN READ MESSAGES AND THEN CALCULATE THE DAY TO DAY EXPENSES BASED ON TRANSACTION MESSAGES.
-
 import random
 import sys
 import time
@@ -14,27 +12,21 @@ import threading
 
 
 def write_with_animation(word: str, type_delay: float):
-    start = time.perf_counter()
     for letter in word:
         sys.stdout.write(letter)
         sys.stdout.flush()
         time.sleep(type_delay)
-    end = time.perf_counter()
-    # print(end - start)
     # print("Animation:", end= " ")
     # print(threading.current_thread().name)
 
 
 def say_jokes(given_joke):
-    start = time.perf_counter()
     engine = tts.init()
     tts_settings(engine)
     engine.say(given_joke)
     engine.runAndWait()
     engine.stop()
     #print("TTS: ",end = "")
-    end = time.perf_counter()
-    #print(end-start, "TTS")
     #print(threading.current_thread().name)
 
 

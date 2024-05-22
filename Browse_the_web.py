@@ -1,9 +1,9 @@
 import webbrowser
 
-
+# Paths given below are the default locations of the apps. They might have been changed.
 browser_paths = {
     "chrome": r"C:\Program Files\Google\Chrome\Application\chrome.exe",
-    "opera": r"C:\Users\krish\AppData\Local\Programs\Opera\launcher.exe",
+    "opera": r"C:\Users\<username>\AppData\Local\Programs\Opera\launcher.exe",
     "edge": r"C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe",
 }
 for i in browser_paths:

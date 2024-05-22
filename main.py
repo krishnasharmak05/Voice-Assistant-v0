@@ -1,9 +1,14 @@
 # File that will always be running in the background.
 
 
-# Restructure this code such that no sound comes up when jarvis is not actively running aka listening and doesn't understand something(sr.UnknownValueError). However, if sr.UnknowValueError is raised after jarvis has been activated by saying the hotkey, sound should be heard.
+# Restructure this code such that no sound comes up when jarvis is not actively running aka listening and doesn't understand
+# something(sr.UnknownValueError). However, if sr.UnknowValueError is raised after jarvis has been activated by saying the hotkey,
+# sound should be heard.
 
 # GET ONE THREAD TO DO ALL OF THE PRINTING. WHEN COMMAND IS TO "exit" or "wait", stop printing.
+# TODO:  REMEMBER TO MAKE THIS A CLI.
+
+
 import Browse_the_web
 import news
 import os
@@ -20,9 +25,7 @@ from tkinter import * # type: ignore
 from assets.jokes import event
 import pygetwindow as gw
 import keyboard
-import WhatsApp_automation
-
-
+# import WhatsApp_automation
 
 
 def listen_for_commands()-> str | None:
@@ -41,9 +44,7 @@ def listen_for_commands()-> str | None:
         return None
     except sr.RequestError as e:
         print("Could not request results from Google Speech Recognition service; {0}".format(e))
-        return None    
-
-
+        return None
 
 
 def get_path():
@@ -51,7 +52,7 @@ def get_path():
     print(df)
 
 # IncompleteFunction
-    
+
 def open_command(command:str): # INCOMPLETE
     element_to_be_opened = command.removeprefix('open ')
     path_to_element_to_be_opened = ""
@@ -69,7 +70,7 @@ def bg_listener():
             pyttse.engine.runAndWait()
             task_runner()
             break
-        
+
 def type_function(keywords:str):
     keywords = keywords.removeprefix("type ")
     if "terminal" in keywords:
@@ -84,15 +85,18 @@ def type_function(keywords:str):
                 print(active_window.title)
                 time.sleep(0.5)
                 if active_window.title == r"C:\WINDOWS\system32\cmd.exe" or active_window.title == "Win32Window" or active_window.title == "Command Prompt":
-                    break        
+                    break
     keyboard.write(keywords)
     keyboard.press_and_release("enter")
 
 
+# def task_runner2():
+#     command = listen_for_commands() if listen_for_commands() != None else "didn't catch that!"
+#     command_mapping = {
+#       "cancel": "PlaceHolder. This should be a cancel function"
+#     }
 
 
-    
-    
 def task_runner():
     while True:
         command = listen_for_commands()
@@ -102,17 +106,7 @@ def task_runner():
                 if 'cancel' in lower_command or lower_command == "exit":
                     playsound("./sounds/end.mp3")
                     pass # change pass into: await until bg_listener returns a variable saying hotkey = "jarvis" then pass
-                elif lower_command.startswith("whatsapp") or lower_command.startswith("message") or lower_command.startswith("send a message"):
-                    number = WhatsApp_automation.get_number(lower_command)
-                    WhatsApp_automation.whatsapp_message(command, number)
-                elif lower_command.startswith("make a call") or lower_command.startswith("make a whatsapp call"):
-                    if "voice" in lower_command:
-                        number = WhatsApp_automation.get_number(lower_command)
-                        WhatsApp_automation.whatsapp_call('voice', number)
-                    elif 'video' in lower_command:
-                        number = WhatsApp_automation.get_number(lower_command)
-                        WhatsApp_automation.whatsapp_call('video', number)
-                elif lower_command == "make a joke" or "joke" in lower_command: 
+                elif lower_command == "make a joke" or "joke" in lower_command:
                     jokes.make_a_joke(event)
                 elif lower_command.startswith("open"):
                     open_command(lower_command)
@@ -142,14 +136,10 @@ def task_runner():
     pyttse.engine.stop()
 
 
-
-
-
 # HAS A THREAD ISSUE!!!
 if __name__ == "__main__":
     bg_listener()
-#get_path()
-
+# get_path()
 
 
 # set timer, reminder, stopwatch, alarm
@@ -158,16 +148,5 @@ if __name__ == "__main__":
 # Make to-do lists and such.
 
 
-# Play some music - NOT DOABLE DUE TO LEGAL REASONS.
-# Play stuff on YT - NOT DOABLE DUE TO LEGAL REASONS.
-
-
-# Send a whatsapp message - DONE
-# Make a whatsapp call - DONE
-# Get news - DONE
-
 # TO DB = to-do lists, jokes, reminders and alarms(, timers).
-# TAKE CARE OF THAT "NONE" THAT IS RETURNED FROM listen_for_commands()
-    
 
-    

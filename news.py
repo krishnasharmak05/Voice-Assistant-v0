@@ -64,3 +64,9 @@ def print_and_say_news():
         tts.engine.runAndWait()
     tts.engine.say("And more")
     tts.engine.runAndWait()
+
+if __name__ == "__main__":
+    print_and_say_news()
+
+
+# Code needs to be looked over again!
